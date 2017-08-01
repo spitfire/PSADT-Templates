@@ -62,8 +62,9 @@ Try {
 	[string]$appArch = ''
 	[string]$appLang = 'EN'
 	[string]$appRevision = '01'
+	[string]$baseScriptVersion = '1.0.0'
 	[string]$appScriptVersion = '1.0.0'
-	[string]$appScriptDate = '2017-07-14'
+	[string]$appScriptDate = '2017-08-02'
 	[string]$appScriptAuthor = 'Mieszko Ślusarczyk'
 	[bool]$showPostinstallMessage = $false
 	##*===============================================
