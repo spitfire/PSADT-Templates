@@ -114,6 +114,7 @@ Try {
 		[string]$installPhase = 'Pre-Installation'
 		
 		## Show Welcome Message, close apps specified in $processes, allow up to 2 deferrals (only if any of beforementioned processes is running), verify there is enough disk space to complete the install, and persist the prompt
+		If ($runningTaskSequence){ $DeployMode = 'NonInteractive'}
 		If ($processes)
 		{
 			Show-InstallationWelcome -CloseApps "$processes" -CloseAppsCountdown 3600 -AllowDeferCloseApps -BlockExecution -AllowDefer -DeferTimes 2 -CheckDiskSpace -PersistPrompt
