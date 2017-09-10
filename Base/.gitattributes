@@ -2,3 +2,4 @@ AppDeployToolkit/AppDeployToolkitBanner.png  filter=lfs diff=lfs merge=lfs -text
 AppDeployToolkit/AppDeployToolkitLogo.ico  filter=lfs diff=lfs merge=lfs -text
 Files/** filter=lfs diff=lfs merge=lfs -text
 Deploy-Application.exe filter=lfs diff=lfs merge=lfs -text
+
