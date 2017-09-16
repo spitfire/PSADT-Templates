@@ -1,4 +1,4 @@
 *.TempPoint.ps1
-*.Thumbs.db
+Thumbs.db
 AppDeployToolkit/AppDeployToolkitBanner.png 
 AppDeployToolkit/AppDeployToolkitLogo.ico
