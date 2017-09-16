@@ -1,5 +1,20 @@
 #!/bin/sh
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/post-checkout.\n"; exit 2; }
 git lfs post-checkout "$@"
-cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png ./AppDeployToolkit/AppDeployToolkitBanner.png
-cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico ./AppDeployToolkit/AppDeployToolkitLogo.ico
+if [-f $HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png] && [-f $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico];
+	then if [-d ./AppDeployToolkit];
+		then
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png ./AppDeployToolkit/AppDeployToolkitBanner.png
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico ./AppDeployToolkit/AppDeployToolkitLogo.ico
+	else if [-d ./x64/AppDeployToolkit];
+		then
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png ./x64/AppDeployToolkit/AppDeployToolkitBanner.png
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico ./x64/AppDeployToolkit/AppDeployToolkitLogo.ico
+	else if [-d ./x86/AppDeployToolkit];
+		then
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png ./x86/AppDeployToolkit/AppDeployToolkitBanner.png
+			cp $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico ./x86/AppDeployToolkit/AppDeployToolkitLogo.ico
+	else echo "Did not find ./AppDeployToolkit or ./x64/AppDeployToolkit or ./x86/AppDeployToolkit"
+	fi		
+else echo "$HOME/.AppDeployToolkit/Branding/AppDeployToolkitBanner.png and/or $HOME/.AppDeployToolkit/Branding/AppDeployToolkitLogo.ico not found"
+fi
