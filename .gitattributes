@@ -1,3 +1,0 @@
-Files/** filter=lfs diff=lfs merge=lfs -text
-Deploy-Application.exe filter=lfs diff=lfs merge=lfs -text
-
